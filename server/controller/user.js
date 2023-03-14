@@ -4,6 +4,12 @@ const bcrypt = require("bcryptjs");
 const SignUP = async (req, res) => {
   console.log(req.body);
   const { f_name, l_name, email, pass } = req.body;
+  const ALreadyUser = await User.findOne({ email });
+  if (ALreadyUser) {
+    return res
+      .status(401)
+      .json({ msg: "Sorry Already a User , Please Login!" });
+  }
   const salt = await bcrypt.genSalt(10); // generating random string.
   const hashedPassword = await bcrypt.hash(pass, salt); //hashing password.
   const tempUser = { f_name, l_name, email, pass: hashedPassword }; //passing hashed password in tempuser

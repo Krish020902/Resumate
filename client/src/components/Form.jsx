@@ -137,13 +137,15 @@ const Form = () => {
                     .then(() =>
                       axios.get(
                         "/task/fetch-pdf",
-                        { withCredentials: true },
                         {
                           responseType: "blob",
-                        }
+                        },
+                        { withCredentials: true }
                       )
                     )
                     .then((res) => {
+                      console.log(res);
+                      console.log(res.data);
                       const pdfBlob = new Blob([res.data], {
                         type: "application/pdf",
                       });
