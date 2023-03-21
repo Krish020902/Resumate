@@ -45,6 +45,28 @@ function SignIn() {
       </style>
 
       {/* Jumbotron */}
+      <nav class="navbar navbar-expand-lg pl-3 pl-sm-0" id="navbar">
+        <div class="container">
+          {/* <div class="navbar-brand-wrapper d-flex w-100">
+            <img src={img1} alt="" />
+          </div> */}
+          <div
+            class="collapse navbar-collapse navbar-menu-wrapper"
+            id="navbarSupportedContent"
+          >
+            <ul class="navbar-nav align-items-lg-center align-items-start ml-auto">
+              <li class="nav-item">
+                <Link to="/" className="nav-link">
+                  Home
+                </Link>
+                {/* <a class="nav-link" href="#"> */}
+                {/* Login */}
+                {/* </a> */}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
       <div className="container py-4">
         <div className="row g-0 align-items-center">
           <div className="col-lg-6 mb-5 mb-lg-0">

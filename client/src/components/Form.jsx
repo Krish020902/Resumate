@@ -8,9 +8,18 @@ import Template from "./Template";
 import axios from "axios";
 import { saveAs } from "file-saver";
 import Success from "./Success";
+import { Link } from "react-router-dom";
 
+// console.log(queryParams);
+
+// console.log("this is", name, last);
 const Form = () => {
+  const queryParams = new URLSearchParams(window.location.search);
   const [valid, setValid] = useState(false);
+  const name = queryParams.get("name");
+  const last = queryParams.get("last");
+  const data = queryParams.get("cv");
+  console.log("this is existing data", data);
   const ShowForm = async () => {
     try {
       const res = await axios.get("/task", {
@@ -60,6 +69,8 @@ const Form = () => {
     edu1_qualification: "",
     edu1_desc: "",
     senderemail: "",
+
+    existData: { data },
   });
 
   const [page, setPage] = useState(0);
@@ -90,9 +101,40 @@ const Form = () => {
 
   return (
     <>
-      {valid && (
+      <nav class="navbar navbar-expand-lg pl-3 pl-sm-0" id="navbar">
+        <div class="container">
+          {/* <div class="navbar-brand-wrapper d-flex w-100">
+            <img src={img1} alt="" />
+          </div> */}
+          <div
+            class="collapse navbar-collapse navbar-menu-wrapper"
+            id="navbarSupportedContent"
+          >
+            <ul class="navbar-nav align-items-lg-center align-items-start ml-auto">
+              {/* <li class="nav-item">
+                <Link to="/Login" className="nav-link">
+                  LogIn
+                </Link> */}
+              {/* <a class="nav-link" href="#"> */}
+              {/* Login */}
+              {/* </a> */}
+              {/* </li> */}
+              <li class="nav-item">
+                <Link to="/" className="nav-link">
+                  Home
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      {valid && name && last && (
         <div>
-          <h1 className="text-center">Let's generate your Resume!</h1>
+          {/* <h1>${name</h1> */}
+          <h1 className="text-center">
+            Let's generate your Resume! Mr {name} {last}
+            {/* console.log(data) */}
+          </h1>
           <div className="d-flex justify-content-center">
             <h1 className="text-center">{FormTitle[page]}</h1>
           </div>

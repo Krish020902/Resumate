@@ -45,7 +45,7 @@ const Login = async (req, res) => {
     const token = user.Createjwt();
     console.log(token);
     res.cookie("jwt", token, { expires: new Date(Date.now() + 25892000000) });
-    return res.status(200).json({ msg: "Successful", token });
+    return res.status(200).json({ msg: "Successful", token, user });
   }
   // res.status(200).json({ f_name: user.f_name, token }); //passing token back to frontend .
 };

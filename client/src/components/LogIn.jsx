@@ -15,7 +15,19 @@ function LogIn() {
     // console.log(formData);
     await axios.post("/user/login", formData, { withCredentials: true }).then(
       (res) => {
-        navigate("/Form");
+        // console.log(res);
+        console.log("this i s cv");
+        console.log(res.data.user.cv[0].fname);
+        // window.alert(res.data.user.f_name, res.data.user.l_name);
+        const data = {
+          name: res.data.user.f_name,
+          last: res.data.user.l_name,
+          cv: res.data.user.cv[0].fname,
+        };
+        const param = new URLSearchParams(data).toString();
+        navigate(`/Form?${param}`);
+        // console.log(res.data.user.f_name, res.data.user.l_name);
+        // <h1>${res.data.user.f_name}</h1>;
       },
       (error) => {
         window.alert(`${error.response.data.msg}`);
@@ -42,6 +54,28 @@ function LogIn() {
       </style>
 
       {/* Jumbotron */}
+      <nav class="navbar navbar-expand-lg pl-3 pl-sm-0" id="navbar">
+        <div class="container">
+          {/* <div class="navbar-brand-wrapper d-flex w-100">
+            <img src={img1} alt="" />
+          </div> */}
+          <div
+            class="collapse navbar-collapse navbar-menu-wrapper"
+            id="navbarSupportedContent"
+          >
+            <ul class="navbar-nav align-items-lg-center align-items-start ml-auto">
+              <li class="nav-item">
+                <Link to="/" className="nav-link">
+                  Home
+                </Link>
+                {/* <a class="nav-link" href="#"> */}
+                {/* Login */}
+                {/* </a> */}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
       <div className="container py-4">
         <div className="row g-0 align-items-center">
           <div className="col-lg-6 mb-5 mb-lg-0">
@@ -108,7 +142,7 @@ function LogIn() {
                   </button>
                   <div className="small fw-bold mt-2 pt-1 mb-0">
                     Don't have an account? &nbsp;
-                    <Link to="/" className="text-decoration-none">
+                    <Link to="/Signin" className="text-decoration-none">
                       SignUp
                     </Link>
                   </div>

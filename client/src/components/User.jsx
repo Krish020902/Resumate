@@ -2,9 +2,14 @@ import { createBrowserRouter } from "react-router-dom";
 import SignIn from "./SignIn";
 import LogIn from "./LogIn";
 import Form from "./Form";
+import Dashboard from "./Dashboard";
 const User = createBrowserRouter([
   {
     path: "/",
+    element: <Dashboard />,
+  },
+  {
+    path: "/Signin",
     element: <SignIn />,
   },
   {
