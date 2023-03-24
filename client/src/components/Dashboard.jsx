@@ -3,7 +3,7 @@ import "../image/CSS/newcss.css";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-import img1 from "../image/images/Group2.svg";
+import img1 from "../image/images/LOGO.jpg";
 import img2 from "../image/images/Group171.svg";
 import img3 from "../image/images/p1.png";
 import img4 from "../image/images/p2.png";
@@ -22,7 +22,7 @@ export default function Dashboard() {
           <nav class="navbar navbar-expand-lg pl-3 pl-sm-0" id="navbar">
             <div class="container">
               <div class="navbar-brand-wrapper d-flex w-100">
-                <img src={img1} alt="" />
+                <img style={{ height: "45px" }} src={img1} alt="" />
               </div>
               <div
                 class="collapse navbar-collapse navbar-menu-wrapper"

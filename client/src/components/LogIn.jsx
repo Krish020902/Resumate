@@ -38,7 +38,7 @@ function LogIn() {
     // }
   };
   return (
-    <section className="text-center text-lg-start">
+    <section className="text-center text-lg-start ">
       <style>
         {`
         .cascading-right {
@@ -76,9 +76,9 @@ function LogIn() {
           </div>
         </div>
       </nav>
-      <div className="container py-4">
-        <div className="row g-0 align-items-center">
-          <div className="col-lg-6 mb-5 mb-lg-0">
+      <div className="container py-4 ">
+        <div className="row g-0 align-items-center ">
+          <div className="col-lg-6 mb-5 mb-lg-0 ">
             <div
               className="card cascading-right"
               style={{
@@ -86,7 +86,7 @@ function LogIn() {
                 backdropFilter: "blur(30px)",
               }}
             >
-              <div className="card-body p-5 shadow-5 text-center">
+              <div className="card-body p-5 shadow-5  text-center">
                 <h2 className="fw-bold mb-5">Log In</h2>
                 <form onSubmit={onClickHandler}>
                   {/* 2 column grid layout with text inputs for the first and last names */}

@@ -69,7 +69,7 @@ body {
     line-height: 1.5;
     color: #212529;
     text-align: left;
-    /* background-color: #fff; */
+    background-color: lavender;
 }
 
 [tabindex="-1"]:focus {
@@ -214,6 +214,8 @@ figure {
 
 img {
     border-style: none;
+    
+    /* height: 45px; */
 }
 
 img,
@@ -584,6 +586,7 @@ pre code {
     width: 100%;
     padding-right: 15px;
     padding-left: 15px;
+    /* background-color: lavender; */
     margin-right: auto;
     margin-left: auto;
 }
@@ -713,7 +716,10 @@ pre code {
     padding-right: 15px;
     padding-left: 15px;
 }
-
+.bg-lvnder{
+    background-color: lavender;
+    height: 100%;
+}
 .col {
     flex-basis: 0;
     flex-grow: 1;
@@ -1940,10 +1946,10 @@ pre code {
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-    color: #495057;
+    
     background-color: #fff;
     background-clip: padding-box;
-    border: 1px solid #ced4da;
+    border: 1px solid #17426e;
     border-radius: 0.25rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
@@ -1960,9 +1966,10 @@ pre code {
 }
 
 .form-control:focus {
-    color: #495057;
-    background-color: #fff;
-    border-color: #0014b7;
+    color: lavender;
+    background-color: lavender;
+    border-color: purple;
+    color: #000;
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(0, 6, 55, 0.25);
 }
@@ -1998,10 +2005,10 @@ pre code {
     opacity: 1;
 }
 
-select.form-control:focus::-ms-value {
+/* select.form-control:focus::-ms-value {
     color: #495057;
-    background-color: #fff;
-}
+    background-color: #d50e0e;
+} */
 
 .form-control-file,
 .form-control-range {
@@ -10635,6 +10642,8 @@ body.sidebar-open .fixed-top {
 
 body.sidebar-open .fixed-top .navbar-brand-wrapper img {
     display: none;
+    /* width: 10px;
+    height:10px; */
 }
 
 body.sidebar-open:before {
@@ -10649,6 +10658,7 @@ body.sidebar-open:before {
 }
 
 .banner {
+    /* margin-top: 100px; */
     background-color: lavender;
     text-align: center;
 }
@@ -10895,7 +10905,7 @@ footer a:hover {
 }
 
 .navbar {
-    background-color: #bd50e5;
+    background-color: #502380;
     padding: 15px 0 15px;
 }
 
@@ -10928,14 +10938,14 @@ footer a:hover {
     margin: 5px;
     border-radius: 15px;
     font-weight: 500;
-    color: #111;
+    color: white;
     
 }
 
 .navbar .navbar-menu-wrapper .navbar-nav .nav-link:hover {
     color: white;
     /* font-weight: 300; */
-    background-color: black;
+    background-color: #b65fcf;
     transition: all 0.3s ease;
 }
 
@@ -11343,10 +11353,11 @@ footer a:hover {
     font-size: 14px;
 }
 
-.form-control,
+.form-control
 .form-control:focus {
-    background-color: #f6f7fb;
+    /* background-color: black; */
     border: none;
+    border-color: purple;
 }
 
 .form-control:focus {

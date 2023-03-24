@@ -101,7 +101,7 @@ const Form = () => {
 
   return (
     <>
-      <nav class="navbar navbar-expand-lg pl-3 pl-sm-0" id="navbar">
+      <nav class="navbar navbar-expand-lg pl-3 pl-sm-0 bg-lvnder" id="navbar">
         <div class="container">
           {/* <div class="navbar-brand-wrapper d-flex w-100">
             <img src={img1} alt="" />
@@ -129,7 +129,7 @@ const Form = () => {
         </div>
       </nav>
       {valid && name && last && (
-        <div>
+        <div className="bg-lvnder">
           {/* <h1>${name</h1> */}
           <h1 className="text-center">
             Let's generate your Resume! Mr {name} {last}
