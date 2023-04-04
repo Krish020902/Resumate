@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import img1 from "../image/images/LOGO.jpg";
+
 function SignIn() {
   const navigate = useNavigate();
 
@@ -50,6 +52,9 @@ function SignIn() {
           {/* <div class="navbar-brand-wrapper d-flex w-100">
             <img src={img1} alt="" />
           </div> */}
+          <div class="navbar-brand-wrapper d-flex w-100">
+            <img style={{ height: "45px" }} src={img1} alt="" />
+          </div>
           <div
             class="collapse navbar-collapse navbar-menu-wrapper"
             id="navbarSupportedContent"

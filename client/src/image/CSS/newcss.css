@@ -589,6 +589,7 @@ pre code {
     /* background-color: lavender; */
     margin-right: auto;
     margin-left: auto;
+    /* margin-top: 20px; */
 }
 
 @media (min-width: 576px) {
@@ -4270,7 +4271,7 @@ input[type="submit"].btn-block {
 }
 
 .navbar {
-    position: relative;
+    /* position: relative; */
     padding: 0.5rem 1rem;
 }
 
@@ -10658,7 +10659,7 @@ body.sidebar-open:before {
 }
 
 .banner {
-    /* margin-top: 100px; */
+    /* margin-top: 300px; */
     background-color: lavender;
     text-align: center;
 }
@@ -10905,6 +10906,10 @@ footer a:hover {
 }
 
 .navbar {
+    /* position: fixed; */
+    z-index: 3;
+    width: 100%;
+    margin-top: 0px;
     background-color: #502380;
     padding: 15px 0 15px;
 }
@@ -10939,6 +10944,7 @@ footer a:hover {
     border-radius: 15px;
     font-weight: 500;
     color: white;
+
     
 }
 

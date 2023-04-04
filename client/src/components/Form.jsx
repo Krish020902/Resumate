@@ -9,6 +9,7 @@ import axios from "axios";
 import { saveAs } from "file-saver";
 import Success from "./Success";
 import { Link } from "react-router-dom";
+import img1 from "../image/images/LOGO.jpg";
 
 // console.log(queryParams);
 
@@ -106,6 +107,9 @@ const Form = () => {
           {/* <div class="navbar-brand-wrapper d-flex w-100">
             <img src={img1} alt="" />
           </div> */}
+          <div class="navbar-brand-wrapper d-flex w-100">
+            <img style={{ height: "45px" }} src={img1} alt="" />
+          </div>
           <div
             class="collapse navbar-collapse navbar-menu-wrapper"
             id="navbarSupportedContent"

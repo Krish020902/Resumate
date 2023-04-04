@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import img1 from "../image/images/LOGO.jpg";
+
 function LogIn() {
   const navigate = useNavigate();
 
@@ -17,13 +19,15 @@ function LogIn() {
       (res) => {
         // console.log(res);
         console.log("this i s cv");
-        console.log(res.data.user.cv[0].fname);
+        console.log(res);
+        console.log(res.data);
+        console.log("name is", res.data.user.f_name);
         // window.alert(res.data.user.f_name, res.data.user.l_name);
         const data = {
           name: res.data.user.f_name,
           last: res.data.user.l_name,
-          cv: res.data.user.cv[0].fname,
         };
+
         const param = new URLSearchParams(data).toString();
         navigate(`/Form?${param}`);
         // console.log(res.data.user.f_name, res.data.user.l_name);
@@ -59,6 +63,9 @@ function LogIn() {
           {/* <div class="navbar-brand-wrapper d-flex w-100">
             <img src={img1} alt="" />
           </div> */}
+          <div class="navbar-brand-wrapper d-flex w-100">
+            <img style={{ height: "45px" }} src={img1} alt="" />
+          </div>
           <div
             class="collapse navbar-collapse navbar-menu-wrapper"
             id="navbarSupportedContent"
@@ -136,7 +143,7 @@ function LogIn() {
                   <button
                     type="submit"
                     className="btn btn-primary btn-block mb-4"
-                    // onClick={onClickHandler}
+                    onClick={onClickHandler}
                   >
                     Log In
                   </button>

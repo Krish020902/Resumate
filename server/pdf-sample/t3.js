@@ -1,4 +1,4 @@
-  module.exports = ({
+module.exports = ({
   id,
   fname,
   lname,
@@ -27,339 +27,345 @@
   return `
         <!DOCTYPE html>
 <html lang="en">
-<head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-
-    <style >
-        * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-html {
-  height: 100%;  
-}
-
-body {
-  min-height: 100%;  
-  background: #eee;
-  font-family: 'Lato', sans-serif;
-  font-weight: 400;
-  color: #222;
-  font-size: 14px;
-  line-height: 26px;
-  padding-bottom: 50px;
-}
-
-.container {
-  max-width: 700px;   
-  background: #fff;
-  margin: 0px auto 0px; 
-  box-shadow: 1px 1px 2px #DAD7D7;
-  border-radius: 3px;  
-  padding: 40px;
-  margin-top: 50px;
-}
-
-.header {
-  margin-bottom: 30px;
-}
-  .full-name {
-    font-size: 40px;
-    text-transform: uppercase;
-    margin-bottom: 5px;
-  }
-  
-  .first-name {
-    font-weight: 700;
-  }
- 
-  
-  .last-name {
-    font-weight: 300;
-  }
-  
-  .contact-info {
-    margin-bottom: 20px;
-  }
-  
-  .email ,
-  .phone {
-    color: #999;
-    font-weight: 300;
-  } 
-  
-  .separator {
-    height: 10px;
-    display: inline-block;
-    border-left: 2px solid #999;
-    margin: 0px 10px;
-  }
-  
-  .position {
-    font-weight: bold;
-    display: inline-block;
-    margin-right: 10px;
-    text-decoration: underline;
-  }
-
-
-
-.details {
-  line-height: 20px;
-}
-  .section {
-    margin-bottom: 40px;
-    line-height: 20px;  
-  }
-  
-  .section:last-of-type {
-    margin-bottom: 0px;
-    line-height: 20px;  
-  }
-  
-  .section__title {
-    letter-spacing: 2px;
-    color: #54AFE4;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    line-height: 20px;
-  }
-  
-  .section__list-item {
-    margin-bottom: 40px;
-    line-height: 20px;
-  }
-  
-  .section__list-item:last-of-type {
-    margin-bottom: 0;
-    line-height: 20px;
-  }
-  
-  .left ,
-  .right {
-    vertical-align: top;
-    display: inline-block;
-    line-height: 20px;
-  }
-  
-  .left {
-    width: 60%;    
-    line-height: 20px;
-  }
-  
-  .right {
-    text-align: right;
-    width: 39%;    
-    line-height: 20px;
-  }
-  
-  .name {
-    font-weight: bold;
-    line-height: 20px;
-  }
-  
-  a {
-    text-decoration: none;
-    color: #000;
-    font-style: italic;
-    line-height: 20px;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-    color: #000;
-    line-height: 20px;
-  }
-  
-  .skills {
-    
-  }
-    
-  .skills__item {
-    margin-bottom: 10px;
-    line-height: 20px;  
-  }
-  
-  .skills__item .right {
-    
-      display: none;
-      line-height: 20px;
-    }
-    
-    label {
-      display: inline-block;  
-      width: 20px;
-      height: 20px;
-      background: #C3DEF3;
-      border-radius: 20px;
-      margin-right: 3px;
-    }
-    
-    input:checked + label {
-      background: #79A9CE;
-    }
+    <style>
+      html {
+        font-family: "Open Sans", sans-serif;
+        background: whitesmoke;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+      }
+      hr {
+        background: grey;
+      }
+      #container {
+        position: relative;
+        display: flex;
+      }
+      #profile {
+        flex: 15%;
+        display: block;
+        position: relative;
+        margin: 5% 2% 0 10%;
+        width: 100%;
+        height: 100%;
+      }
+      #info-cards {
+        flex: 55%;
+        display: block;
+        margin-top: 5%;
+        margin-right: 10%;
+        width: 100%;
+        height: 100%;
+      }
+      #image {
+        position: relative;
+        overflow: hidden;
+      }
+      #image,
+      #profile-photo {
+        position: relative;
+        width: 80px;
+        height: 80px;
+        border-radius: 10px;
+      }
+      #image > a {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.5) !important;
+        height: 100%;
+        width: 100%;
+        display: none;
+      }
+      #image > a > i {
+        -webkit-text-stroke: 1px #ffffffdd;
+        padding: 40%;
+      }
+      #image:hover a {
+        display: block;
+      }
+      #name {
+        font-size: 23px !important;
+        line-height: 20px !important;
+      }
+      #about,
+      .card > ul > li {
+        padding: 0 0 0 15px;
+        position: relative;
+        display: inline-block;
+        width: 100%;
+      }
+      #about {
+        font-size: 20px !important;
+        padding: 0 !important;
+      }
+      #name,
+      #about > p {
+        font-weight: bolder;
+        font-family: "Open Sans", sans-serif;
+      }
+      #email {
+        font-size: 15px !important;
+        font-weight: bold !important;
+        font-family: "Cutive Mono", monospace;
+      }
+      #college,
+      #email,
+      #year-graduation,
+      #education,
+      #more-about,
+      #telephone,
+      #fax {
+        color: #555;
+        font-size: 13.5px;
+      }
+      strong,
+      span {
+        color: black;
+        font-size: 16px;
+      }
+      #social-links,
+      #about {
+        display: inline-block;
+      }
+      #social-links {
+        margin-bottom: 12px;
+      }
+      #social-links a {
+        margin: 0 10px;
+      }
+      #edit-intro {
+        display: block;
+        color: #097bbf;
+        font-family: "Nunito", sans-serif;
+      }
+      .fab {
+        font-size: 1.1em;
+      }
+      .fab,
+      .fas {
+        color: whitesmoke;
+      }
+      #about > a {
+        top: 4px;
+        right: 8px;
+      }
+      .edit {
+        top: 19px;
+        right: 10px;
+      }
+      #about > a,
+      .edit {
+        position: absolute;
+        font-size: 15px !important;
+      }
+      .stroke-transparent {
+        -webkit-text-stroke: 1px #000;
+        -webkit-text-fill-color: transparent;
+      }
+      .blue {
+        color: #097bbf !important;
+        font-size: 13px;
+      }
+      .stroke-transparent-blue {
+        -webkit-text-stroke: 1px #097bbf;
+        -webkit-text-fill-color: transparent;
+      }
+      .card {
+        box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+        overflow-x: hidden;
+        margin-bottom: 30px;
+        padding: 15px 30px 30px 30px;
+        background-color: #fff;
+      }
+      .card > p {
+        color: #0e141e;
+        font-weight: bolder;
+        font-size: 18px;
+        line-height: 2;
+      }
+      .card > p > i {
+        font-size: 18px;
+      }
+      .card > a {
+        font-weight: 400;
+        font-size: 15px;
+        margin: 0;
+        margin-left: 25px;
+        padding: 0;
+        border: 0;
+        height: auto;
+        background: transparent;
+        color: #097bbf;
+        outline: none;
+        cursor: pointer;
+      }
+      .card > ul {
+        list-style-type: none;
+      }
+      .tags {
+        font-size: 17px;
+        font-weight: bolder;
+      }
+      .tags ~ a {
+        display: none !important;
+      }
+      .tags span {
+        font-size: 14px;
+        font-weight: normal;
+        color: #0e141e;
+      }
+      .tags span span {
+        color: #738f93;
+      }
+      @media screen and (max-width: 1090px) {
+        #profile {
+          margin-left: 5%;
+        }
+      }
+      @media screen and (max-width: 850px) {
+        #container {
+          display: block;
+        }
+        #profile {
+          width: 90%;
+        }
+        .card {
+          margin: 0 5%;
+          margin-bottom: 30px;
+        }
+      }
     </style>
-</head>
-<body>
-    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
-
-<div class="container">
-  <div class="header">
-    <div class="full-name">
-    <span class="first-name">${fname}</span> 
-    
-    
-      <span class="last-name">${lname}</span>
-    </div>
-    <div class="contact-info">
-      <span class="email">Email: </span>
-      <span class="email-val">${email}</span>
-      <span class="separator"></span>
-      <span class="phone">Phone: </span>
-      <span class="phone-val">${phone}</span>
-       <span class="separator"></span>
-    <!-- <div> -->
-
-      <span class="text"><span class="fa fa-github" style="font-size: 31px;">
-
-      </span><a href=${github}>${github}</a>
-      </span>
-    <!-- </div> -->
-      <span class="separator"></span>
-    <!-- <div> -->
-
-      <span class="text"><span class="fa fa-linkedin" style="font-size: 31px;">
-
-      </span>  <a href=${linkedin}>${linkedin}</a>
-      </span>
-    
-    <div class="about">
-      <span class="position">Front-End Developer </span>
-      <span class="desc">
-        ${skills} 
-      </span>
-    </div>
-  </div>
-   <div class="details">
-    <div class="section">
-      <div class="section__title">Experience</div>
-      <div class="section__list">
-        <div class="section__list-item">
-          <div class="left">
-            <div class="name">${exp1_org}</div>
-            <div class="addr">San Fr, CA</div>
-            <div class="duration">${exp1_dur}</div>
-          </div>
-          <div class="right">
-            <div class="name">${exp1_pos}</div>
-            <div class="desc">${exp1_desc}</div>
-          </div>
+  </head>
+  <body>
+    <div id="inner-nav"></div>
+    <div id="container">
+      <div id="profile">
+        <p id="name">
+          ${fname} ${lname}<br /><span id="email"
+            >${email}</span
+          >
+        </p>
+        <p id="designation">
+          Software developer<br /><span id="college"
+            >${edu1_qualification}</span
+          >
+        </p>
+        <div id="social-links">
+          <a href="#"><i class="fab fa-facebook-f stroke-transparent"></i></a
+          ><a><i class="fab fa-twitter stroke-transparent"></i></a
+          ><a><i class="fab fa-linkedin-in stroke-transparent"></i></a
+          ><a><i class="fab fa-github stroke-transparent"></i></a>
+        </div>
+        <hr width="100%" />
+        <div id="about">
+          <p style="display:inline;">About</p>
+          <a href="#"><i class="fas fa-pen stroke-transparent-blue"></i></a>
+        </div>
+        <p id="year-graduation">
+        Year of Graduation<br /><strong>${edu1_year}</strong>
+        </p>
+        <p id="education">
+          Education<br /><strong
+            >${edu1_school}</strong
+          >
+        </p>
+        <p id="education">
+          Education<br /><strong
+            >${edu1_desc}</strong
+          >
+        </p>
+        </p>
+        <p id="telephone">Telephone<br /><strong>${phone}</strong></p>
+      </div>
+      <div id="info-cards">
+        <div class="card">
+          <p>
+            <i class="fas fa-briefcase stroke-transparent"></i
+            >&nbsp;&nbsp;&nbsp;Work Experience
+          </p>
+          <ul>
+            <li>
+              <p class="tags">
+${exp1_org}<br /><span>${exp1_pos}</span>br<span>${exp1_desc}<span>${exp1_dur}</span></span>
+              </p>
+              <a class="edit" href="#"><i class="fas fa-pen stroke-transparent-blue"></i></a>
+            </li>
+          </ul>
+        </div>
+        <div class="card">
+          <p>
+            <i class="fas fa-briefcase stroke-transparent"></i
+            >&nbsp;&nbsp;&nbsp;skill
+          </p>
+          <ul>
+            <li>
+              <p class="tags">
+                ${skills}<br />
+              </p>
+              <a class="edit" href="#"
+                ><i class="fas fa-pen stroke-transparent-blue"></i
+              ></a>
+          </ul>
+        </div>
+        <div class="card">
+          <p>
+            <i class="fas fa-graduation-cap stroke-transparent"></i
+            >&nbsp;&nbsp;&nbsp;project
+          </p>
+          <ul>
+            <li>
+              <p class="tags">
+                ${proj1_title}<br /><span
+                  >${proj1_desc} <span>${proj1_link}</span></span
+                >
+              </p>
+              <a class="edit" href="#"
+                ><i class="fas fa-pen stroke-transparent-blue"></i
+              ></a>
+            </li>
+            <li>
+              <p class="tags">
+                ${proj2_title}<br /><span
+                  >${proj2_desc} <span>${proj2_link}</span></span
+                >
+              </p>
+              <a class="edit" href="#"
+                ><i class="fas fa-pen stroke-transparent-blue"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+        <div class="card">
+          <p>
+            <i class="fas fa-briefcase stroke-transparent"></i>&nbsp;&nbsp;&nbsp;interest
+          </p>
+          <ul>
+            <li>
+              <p class="tags">
+                ${extra_1}<br />
+              </p>
+              <a class="edit" href="#"><i class="fas fa-pen stroke-transparent-blue"></i></a>
+            </li>
+            <li>
+              <p class="tags">
+                ${extra_2}<br />
+              </p>
+              <a class="edit" href="#"><i class="fas fa-pen stroke-transparent-blue"></i></a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
-    <div class="section">
-      <div class="section__title">Education</div>
-      <div class="section__list">
-        <div class="section__list-item">
-          <div class="left">
-            <div class="name">${edu1_school}</div>
-            <div class="addr">San Fr, CA</div>
-            <div class="duration">${edu1_year}</div>
-          </div>
-          <div class="right">
-            <div class="name">${edu1_qualification}</div>
-            <div class="desc">${edu1_desc}</div>
-          </div>
-        </div>
-        
+  </body>
+</html>
 
-      </div>
-      
-  </div>
-     <div class="section">
-      <div class="section__title">Projects</div> 
-       <div class="section__list">
-         <div class="section__list-item">
-           <div class="name">${proj1_title}</div>
-           <div class="text">${proj1_desc}</div>
-           <a href=${proj1_link}>Link to project</a>
-         </div>
-         
-         <div class="section__list-item">
-                    <div class="name">${proj2_title}</div>
-           <div class="text">${proj2_desc}
-           </div>
-           <a href=${proj2_link}>Link to project </a>
-         </div>
-       </div>
-    </div>
-     <div class="section">
-       <div class="section__title">Skills</div>
-       <div class="skills">
-         <div class="skills__item">
-           <div class="left"><div class="name">
-             Javascript
-             </div></div>
-           <div class="right">
-                          <input  id="ck1" type="checkbox" checked/>
-
-             <label for="ck1"></label>
-                          <input id="ck2" type="checkbox" checked/>
-
-              <label for="ck2"></label>
-                         <input id="ck3" type="checkbox" />
-
-              <label for="ck3"></label>
-                           <input id="ck4" type="checkbox" />
-            <label for="ck4"></label>
-                          <input id="ck5" type="checkbox" />
-              <label for="ck5"></label>
-
-           </div>
-         </div>
-         
-       </div>
-       <div class="skills__item">
-           <div class="left"><div class="name">
-             CSS</div></div>
-           <div class="right">
-                          <input  id="ck1" type="checkbox" checked/>
-
-             <label for="ck1"></label>
-                          <input id="ck2" type="checkbox" checked/>
-
-              <label for="ck2"></label>
-                         <input id="ck3" type="checkbox" />
-
-              <label for="ck3"></label>
-                           <input id="ck4" type="checkbox" />
-            <label for="ck4"></label>
-                          <input id="ck5" type="checkbox" />
-              <label for="ck5"></label>
-
-           </div>
-         </div>
-         
-       </div>
-     <div class="section">
-     <div class="section__title">
-       Interests
-       </div>
-       <div class="section__list">
-         <div class="section__list-item">
-                  ${extra_2}
-          </div>
-       </div>
-     </div>
-     </div>
-  </div>
-</div>
-</body>
-</html>      `;
+      `;
 };

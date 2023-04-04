@@ -14,7 +14,9 @@ import img8 from "../image/images/img2.png";
 import img9 from "../image/images/img3.png";
 export default function Dashboard() {
   const navigate = useNavigate();
-
+  const onclickhandler = () => {
+    navigate("/Login");
+  };
   return (
     <>
       <body id="body" data-spy="scroll" data-target=".navbar" data-offset="100">
@@ -59,7 +61,12 @@ export default function Dashboard() {
               options.
             </h6>
             <div>
-              <button class="btn btn-opacity-light mr-1">Create resume</button>
+              <button
+                class="btn btn-opacity-light mr-1"
+                onClick={onclickhandler}
+              >
+                Create resume
+              </button>
             </div>
             <img src={img2} alt="" class="img-fluid" />
           </div>
@@ -82,7 +89,7 @@ export default function Dashboard() {
                       src={img3}
                       alt=""
                       class="img-icons"
-                      width="156"
+                      width="176"
                       height="235"
                     />
                     <h5 class="py-3">Pick a template.</h5>
@@ -98,7 +105,7 @@ export default function Dashboard() {
                       src={img4}
                       alt=""
                       class="img-icons"
-                      width="156"
+                      width="176"
                       height="235"
                     />
                     <h5 class="py-3">Fill in the blanks using expert tips.</h5>
@@ -114,7 +121,7 @@ export default function Dashboard() {
                       src={img5}
                       alt=""
                       class="img-icons"
-                      width="156"
+                      width="176"
                       height="235"
                     />
                     <h5 class="py-3">Personalise your document.</h5>
@@ -134,10 +141,12 @@ export default function Dashboard() {
                       width="156"
                       height="235"
                     />
-                    <h5 class="py-3">And download in DOCX or PDF.</h5>
+                    <h5 class="py-3">And download in PDF or send via email.</h5>
                     <p class="text-muted">
-                      Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce
-                      egeabus consectetuer turpis, suspendisse.
+                      Once you've created your resume, you can easily export it
+                      in various formats, including PDF and Word. This makes it
+                      easy to share your resume with potential employers and to
+                      apply for jobs online
                     </p>
                   </div>
                 </div>
@@ -153,18 +162,17 @@ export default function Dashboard() {
                   data-aos="fade-right"
                 >
                   <h3 class="m-0">
-                    We Offer a Full Range
+                    We Offer a Full Range of
                     <br />
-                    of Digital Marketing Services!
+                    Professinally designed templates!
                   </h3>
                   <div class="col-lg-7 col-xl-6 p-0">
-                    <p class="py-4 m-0 text-muted">
-                      Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce
-                      egeabus consectetuer turpis, suspendisse.
-                    </p>
+                    <p class="py-4 m-0 text-muted"></p>
                     <p class="font-weight-medium text-muted">
-                      Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce
-                      egeabus consectetuer
+                      Templates that are easy to customize and make your own.
+                      Whether you're applying for a job in finance, marketing,
+                      or another field, our templates are designed to help you
+                      make a great impression.
                     </p>
                   </div>
                 </div>
@@ -199,19 +207,17 @@ export default function Dashboard() {
                   data-aos="fade-left"
                 >
                   <h3 class="m-0">
-                    Leading Digital Agency
+                    Leading Resume building
                     <br />
-                    for Business Solution.
+                    website for Career Solution.
                   </h3>
                   <div class="col-lg-9 col-xl-8 p-0">
-                    <p class="py-4 m-0 text-muted">
-                      Power-packed with impressive features and well-optimized,
-                      this template is designed to provide the best performance
-                      in all circumstances.
-                    </p>
+                    <p class="py-4 m-0 text-muted"></p>
                     <p class="pb-2 font-weight-medium text-muted">
-                      Its smart features make it a powerful stand-alone website
-                      building tool.
+                      Our resume builder allows you to easily add sections to
+                      highlight your strengths and accomplishments. You can add
+                      sections such as education, work experience, skills,
+                      certifications, and more.
                     </p>
                   </div>
                 </div>
@@ -224,16 +230,15 @@ export default function Dashboard() {
                   <h3 class="m-0">
                     We Offer a Full Range
                     <br />
-                    of Digital Marketing Services!
+                    of Security Services!
                   </h3>
                   <div class="col-lg-7 col-xl-6 p-0">
-                    <p class="py-4 m-0 text-muted">
-                      Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce
-                      egeabus consectetuer turpis, suspendisse.
-                    </p>
+                    <p class="py-4 m-0 text-muted"></p>
                     <p class="font-weight-medium text-muted">
-                      Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce
-                      egeabus consectetuer
+                      We understand the importance of keeping your personal
+                      information safe and secure. That's why we offer secure
+                      storage for your resume, ensuring that your data is
+                      protected at all times.
                     </p>
                   </div>
                 </div>
