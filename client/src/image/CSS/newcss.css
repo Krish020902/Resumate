@@ -10533,6 +10533,7 @@ a.text-dark:hover {
     .container,
     body {
         min-width: 992px !important;
+        
     }
 
     .navbar {
@@ -10626,7 +10627,7 @@ body {
     font-family: Poppins, sans-serif;
     margin: 0;
     color: purple;
-    background-color: #fff;
+    background-color: lavender;
 }
 
 body.body-top-padding {
@@ -10747,6 +10748,7 @@ body.sidebar-open:before {
 }
 
 .case-studies .bg-violet {
+    
     background: #bbbbf2;
 }
 

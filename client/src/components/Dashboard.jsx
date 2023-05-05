@@ -2,7 +2,7 @@ import React from "react";
 import "../image/CSS/newcss.css";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-
+import ChatGPT from "./ChatGPT";
 import img1 from "../image/images/LOGO.jpg";
 import img2 from "../image/images/Group171.svg";
 import img3 from "../image/images/p1.png";
@@ -12,10 +12,23 @@ import img6 from "../image/images/p4.png";
 import img7 from "../image/images/img1.png";
 import img8 from "../image/images/img2.png";
 import img9 from "../image/images/img3.png";
+// import "@chatscope/chat-ui-kit-react-styles/dist/default/styles.min.css";
+// import {
+//   MainContainer,
+//   ChatContainer,
+//   MessageList,
+//   Message,
+//   MessageInput,
+//   TypingIndicator,
+// } from "@chatscope/chat-ui-kit-react";
+
 export default function Dashboard() {
   const navigate = useNavigate();
   const onclickhandler = () => {
     navigate("/Login");
+  };
+  const onClicking = () => {
+    navigate("/ChatGPT");
   };
   return (
     <>
@@ -261,16 +274,55 @@ export default function Dashboard() {
               <div class="contact-us-bgimage grid-margin">
                 <div class="pb-4">
                   <h4 class="px-3 px-md-0 m-0" data-aos="fade-down">
-                    Do you have any projects?
+                    Do you have any questions?
                   </h4>
                   <h4 class="pt-1" data-aos="fade-down">
-                    Contact us
+                    Chat with us.
                   </h4>
                 </div>
                 <div data-aos="fade-up">
-                  <button class="btn btn-rounded btn-outline-danger">
+                  {/* <button
+                    class="btn btn-rounded btn-outline-danger"
+                    onClick={onClicking}
+                  >
                     Contact us
+                  </button> */}
+                  <button
+                    type="button"
+                    class="btn btn-rounded btn-outline-danger"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                  >
+                    Chat
                   </button>
+
+                  <div
+                    class="modal fade"
+                    id="exampleModal"
+                    tabindex="-1"
+                    aria-labelledby="exampleModalLabel"
+                    aria-hidden="true"
+                  >
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        {/* <div class="modal-header"> */}
+                        {/* <h5 class="modal-title" id="exampleModalLabel">
+                            Modal title
+                          </h5> */}
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                        {/* </div> */}
+                        <ChatGPT></ChatGPT>
+                        <div class="modal-body">
+                          {/* <div class="mb-3"></div> */}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </section>

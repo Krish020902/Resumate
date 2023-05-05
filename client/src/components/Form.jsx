@@ -8,19 +8,25 @@ import Template from "./Template";
 import axios from "axios";
 import { saveAs } from "file-saver";
 import Success from "./Success";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import img1 from "../image/images/LOGO.jpg";
 
 // console.log(queryParams);
 
 // console.log("this is", name, last);
 const Form = () => {
-  const queryParams = new URLSearchParams(window.location.search);
+  // const queryParams = new URLSearchParams(window.location.search);
   const [valid, setValid] = useState(false);
-  const name = queryParams.get("name");
-  const last = queryParams.get("last");
-  const data = queryParams.get("cv");
-  console.log("this is existing data", data);
+  // const name = queryParams.get("name");
+  // const last = queryParams.get("last");
+  // const data = queryParams.get("cv");
+  // console.log("this is existing data", data);
+  const { state } = useLocation();
+  const name = state.data.name;
+  const last = state.data.last;
+  const data = state.data.cv;
+  // console.log("this is state", state);
+
   const ShowForm = async () => {
     try {
       const res = await axios.get("/task", {
@@ -44,32 +50,33 @@ const Form = () => {
 
   const [success, setSuccess] = useState(false);
   const [formData, setFormData] = useState({
-    id: "",
-    fname: "",
-    lname: "",
-    email: "",
-    phone: "",
-    linkedin: "",
-    github: "",
-    skills: "",
+    id: data.id == "" ? "" : data.id,
+    fname: data.fname == "" ? "" : data.fname,
+    lname: data.lname == "" ? "" : data.lname,
+    email: data.email == "" ? "" : data.email,
+    phone: data.phone == "" ? "" : data.phone,
+    linkedin: data.linkedin == "" ? "" : data.linkedin,
+    github: data.github == "" ? "" : data.github,
+    skills: data.skills == "" ? "" : data.skills,
 
-    exp1_org: "",
-    exp1_pos: "",
-    exp1_desc: "",
-    exp1_dur: "",
+    exp1_org: data.org == "" ? "" : data.org,
+    exp1_pos: data.pos == "" ? "" : data.pos,
+    exp1_desc: data.desc == "" ? "" : data.desc,
+    exp1_dur: data.dur == "" ? "" : data.dur,
 
-    proj1_title: "",
-    proj1_link: "",
-    proj1_desc: "",
-    proj2_title: "",
-    proj2_link: "",
-    proj2_desc: "",
+    proj1_title: data.proj1_title == "" ? "" : data.proj1_title,
+    proj1_link: data.proj1_link == "" ? "" : data.proj1_link,
+    proj1_desc: data.proj1_desc == "" ? "" : data.proj1_desc,
+    proj2_title: data.proj2_title == "" ? "" : data.proj2_title,
+    proj2_link: data.proj2_link == "" ? "" : data.proj2_link,
+    proj2_desc: data.proj2_desc == "" ? "" : data.proj2_desc,
 
-    edu1_school: "",
-    edu1_year: "",
-    edu1_qualification: "",
-    edu1_desc: "",
-    senderemail: "",
+    edu1_school: data.edu1_school == "" ? "" : data.edu1_school,
+    edu1_year: data.edu1_year == "" ? "" : data.edu1_year,
+    edu1_qualification:
+      data.edu1_qualification == "" ? "" : data.edu1_qualification,
+    edu1_desc: data.edu1_desc == "" ? "" : data.edu1_desc,
+    senderemail: data.senderemail == "" ? "" : data.senderemail,
 
     existData: { data },
   });
@@ -103,7 +110,7 @@ const Form = () => {
   return (
     <>
       <nav class="navbar navbar-expand-lg pl-3 pl-sm-0 bg-lvnder" id="navbar">
-        <div class="container">
+        <div class="container ">
           {/* <div class="navbar-brand-wrapper d-flex w-100">
             <img src={img1} alt="" />
           </div> */}
@@ -159,7 +166,7 @@ const Form = () => {
             ></div>
           </div>
           <div>{PageDisplay()}</div>
-          <div className="d-flex justify-content-center gap-3 py-5">
+          <div className="d-flex justify-content-center gap-3 py-5 ">
             <button
               className="btn btn-dark"
               disabled={page === 0}

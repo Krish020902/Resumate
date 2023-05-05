@@ -17,19 +17,27 @@ function LogIn() {
     // console.log(formData);
     await axios.post("/user/login", formData, { withCredentials: true }).then(
       (res) => {
+        console.log("asd", res);
+        // console.log("this i s cv");
         // console.log(res);
-        console.log("this i s cv");
-        console.log(res);
-        console.log(res.data);
-        console.log("name is", res.data.user.f_name);
+        // console.log(res.data);
+        // console.log("name is", res.data.user.f_name);
         // window.alert(res.data.user.f_name, res.data.user.l_name);
-        const data = {
+        let data = "";
+        if (res.data.user.cv[0] == undefined) {
+          data = {
+            name: res.data.user.f_name,
+            last: res.data.user.l_name,
+          };
+        }
+        data = {
           name: res.data.user.f_name,
           last: res.data.user.l_name,
+          cv: res.data.user.cv[0],
         };
 
-        const param = new URLSearchParams(data).toString();
-        navigate(`/Form?${param}`);
+        // const param = new URLSearchParams(data).toString();
+        navigate(`/Form`, { state: { data } });
         // console.log(res.data.user.f_name, res.data.user.l_name);
         // <h1>${res.data.user.f_name}</h1>;
       },
@@ -42,7 +50,7 @@ function LogIn() {
     // }
   };
   return (
-    <section className="text-center text-lg-start ">
+    <section className="text-center text-lg-start bg-lvnder ">
       <style>
         {`
         .cascading-right {
