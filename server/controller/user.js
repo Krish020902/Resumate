@@ -3,12 +3,16 @@ const { StatusCodes } = require("http-status-codes");
 const bcrypt = require("bcryptjs");
 const SignUP = async (req, res) => {
   console.log(req.body);
-  const { f_name, l_name, email, pass } = req.body;
+  const { f_name, l_name, email, pass, c_pass } = req.body;
   const ALreadyUser = await User.findOne({ email });
   if (ALreadyUser) {
     return res
-      .status(401)
-      .json({ msg: "Sorry Already a User , Please Login!" });
+      .status(200)
+      .json({ exists: false, msg: "Sorry Already a User , Please Login!" });
+  } else if (pass != c_pass) {
+    return res
+      .status(200)
+      .json({ exists: false, msg: "Sorry passwords don't match!" });
   }
   const salt = await bcrypt.genSalt(10); // generating random string.
   const hashedPassword = await bcrypt.hash(pass, salt); //hashing password.

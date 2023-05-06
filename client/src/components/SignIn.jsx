@@ -12,22 +12,23 @@ function SignIn() {
     l_name: "",
     email: "",
     pass: "",
-    // c_pass: "",
+    c_pass: "",
   });
   const onClickHandler = async (e) => {
     e.preventDefault();
+    // console.log(res);
     try {
       await axios
         .post("http://localhost:4000/user/signin", formData)
         .then((res) => {
-          console.log(res);
-          if (res.status === 401) {
-            window.alert(res.msg);
+          if (res.data.exists === false) {
+            window.alert(res.data.msg);
+          } else {
+            navigate("/Login");
           }
         });
-      navigate("/Login");
     } catch (error) {
-      console.log(`${error}`);
+      console.log(`this is error${error}`);
     }
   };
   return (
@@ -166,7 +167,7 @@ function SignIn() {
                     </label>
                   </div>
 
-                  {/* <div className="form-outline mb-4">
+                  <div className="form-outline mb-4">
                     <input
                       type="password"
                       id="form3Example4"
@@ -182,7 +183,7 @@ function SignIn() {
                     <label className="form-label" htmlFor="form3Example4">
                       Confirm Password
                     </label>
-                  </div> */}
+                  </div>
 
                   {/* Checkbox */}
 

@@ -4,6 +4,7 @@ import LogIn from "./LogIn";
 import Form from "./Form";
 import Dashboard from "./Dashboard";
 import ChatGPT from "./ChatGPT";
+import TotalResume from "./TotalResume";
 const User = createBrowserRouter([
   {
     path: "/",
@@ -24,6 +25,10 @@ const User = createBrowserRouter([
   {
     path: "/ChatGPT",
     element: <ChatGPT />,
+  },
+  {
+    path: "/TotalResume",
+    element: <TotalResume />,
   },
 ]);
 

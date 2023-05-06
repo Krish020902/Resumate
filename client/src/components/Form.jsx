@@ -12,7 +12,7 @@ import { Link, useLocation } from "react-router-dom";
 import img1 from "../image/images/LOGO.jpg";
 
 // console.log(queryParams);
-
+let data = "";
 // console.log("this is", name, last);
 const Form = () => {
   // const queryParams = new URLSearchParams(window.location.search);
@@ -22,10 +22,12 @@ const Form = () => {
   // const data = queryParams.get("cv");
   // console.log("this is existing data", data);
   const { state } = useLocation();
+
+  console.log("this is state", state);
   const name = state.data.name;
   const last = state.data.last;
-  const data = state.data.cv;
-  // console.log("this is state", state);
+  data = state.data.cv;
+  console.log("this is state with name", name);
 
   const ShowForm = async () => {
     try {
@@ -133,6 +135,11 @@ const Form = () => {
               <li class="nav-item">
                 <Link to="/" className="nav-link">
                   Home
+                </Link>
+              </li>
+              <li class="nav-item">
+                <Link to="/TotalResume" className="nav-link" state={state}>
+                  {name}
                 </Link>
               </li>
             </ul>

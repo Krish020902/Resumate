@@ -10,12 +10,12 @@ import {
 } from "@chatscope/chat-ui-kit-react";
 import axios from "axios";
 
-const api_key = "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";
+const api_key = "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";
 
 function App() {
   const [messages, setMessages] = useState([
     {
-      message: "Hello I am chatGPT",
+      message: "Hello! How may I help you?",
       sender: "ChatGPT",
     },
   ]);
@@ -63,36 +63,39 @@ function App() {
     //       "messages": [systemMessage, ...apiMessage],
     //       "temperature": 0.7,
     //     }),
-    //   }) 
+    //   })
     //   .then((res) => {
     //     console.log(res);
     //   })
     //   .catch((err)=>{console.log(err)});
 
     const apiRequestBody = {
-      "model":"gpt-3.5-turbo",
-      'messages':[systemMessage,...apiMessage]
-    }
+      model: "gpt-3.5-turbo",
+      messages: [systemMessage, ...apiMessage],
+    };
 
-    await fetch('https://api.openai.com/v1/chat/completions',{
-      method:'POST',
-      headers:{
-        "Authorization":"Bearer " + api_key,
+    await fetch("https://api.openai.com/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer " + api_key,
         "Content-Type": "application/json",
       },
-      body:JSON.stringify(apiRequestBody)
-    }).then((data)=>{return data.json();})
-    .then((res)=>{
-      console.log(res + res.choices[0].message.content)
-      setMessages([...chatMessages,{
-        message: res.choices[0].message.content,
-        sender: 'ChatGPT',
-      }])
-      setIsTyping(false);
+      body: JSON.stringify(apiRequestBody),
     })
-
-
-
+      .then((data) => {
+        return data.json();
+      })
+      .then((res) => {
+        console.log(res + res.choices[0].message.content);
+        setMessages([
+          ...chatMessages,
+          {
+            message: res.choices[0].message.content,
+            sender: "ChatGPT",
+          },
+        ]);
+        setIsTyping(false);
+      });
   }
 
   return (
@@ -101,7 +104,7 @@ function App() {
         <MainContainer>
           <ChatContainer>
             <MessageList
-            scrollBehavior="smooth"
+              scrollBehavior="smooth"
               typingIndicator={
                 typing ? <TypingIndicator content="Typing" /> : null
               }

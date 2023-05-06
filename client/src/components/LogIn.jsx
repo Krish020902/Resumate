@@ -24,6 +24,7 @@ function LogIn() {
         // console.log("name is", res.data.user.f_name);
         // window.alert(res.data.user.f_name, res.data.user.l_name);
         let data = "";
+        let data1 = "";
         if (res.data.user.cv[0] == undefined) {
           data = {
             name: res.data.user.f_name,
@@ -33,10 +34,17 @@ function LogIn() {
         data = {
           name: res.data.user.f_name,
           last: res.data.user.l_name,
-          cv: res.data.user.cv[0],
+          cv: res.data.user.cv[res.data.user.cv.length - 1],
+          allcv: res.data.user.cv,
         };
+        // data1 = {
+        //   name: res.data.user.f_name,
+        //   last: res.data.user.l_name,
+        //   cv: res.data.user.cv,
+        // };
 
         // const param = new URLSearchParams(data).toString();
+        console.log("this is data with 1 cv", data);
         navigate(`/Form`, { state: { data } });
         // console.log(res.data.user.f_name, res.data.user.l_name);
         // <h1>${res.data.user.f_name}</h1>;
