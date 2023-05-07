@@ -3,6 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import img1 from "../image/images/LOGO.jpg";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "../index.css";
+
+// import Alert from "react-bootstrap-validation/lib/";
 
 function LogIn() {
   const navigate = useNavigate();
@@ -17,40 +22,46 @@ function LogIn() {
     // console.log(formData);
     await axios.post("/user/login", formData, { withCredentials: true }).then(
       (res) => {
-        console.log("asd", res);
+        // console.log("asd", res);
         // console.log("this i s cv");
         // console.log(res);
         // console.log(res.data);
         // console.log("name is", res.data.user.f_name);
         // window.alert(res.data.user.f_name, res.data.user.l_name);
+        // console.log("if ", res.data.user.cv[0]);
         let data = "";
-        let data1 = "";
-        if (res.data.user.cv[0] == undefined) {
+        // let data1 = "";
+        if (res.data.exists == true) {
+          if (res.data.user.cv[0] == undefined) {
+            data = {
+              name: res.data.user.f_name,
+              last: res.data.user.l_name,
+            };
+          }
           data = {
             name: res.data.user.f_name,
             last: res.data.user.l_name,
+            cv: res.data.user.cv[res.data.user.cv.length - 1],
+            allcv: res.data.user.cv,
           };
-        }
-        data = {
-          name: res.data.user.f_name,
-          last: res.data.user.l_name,
-          cv: res.data.user.cv[res.data.user.cv.length - 1],
-          allcv: res.data.user.cv,
-        };
-        // data1 = {
-        //   name: res.data.user.f_name,
-        //   last: res.data.user.l_name,
-        //   cv: res.data.user.cv,
-        // };
+          // data1 = {
+          //   name: res.data.user.f_name,
+          //   last: res.data.user.l_name,
+          //   cv: res.data.user.cv,
+          // };
 
-        // const param = new URLSearchParams(data).toString();
-        console.log("this is data with 1 cv", data);
-        navigate(`/Form`, { state: { data } });
-        // console.log(res.data.user.f_name, res.data.user.l_name);
-        // <h1>${res.data.user.f_name}</h1>;
+          // const param = new URLSearchParams(data).toString();
+          // console.log("this is data with 1 cv", data);
+          navigate(`/Form`, { state: { data } });
+          // console.log(res.data.user.f_name, res.data.user.l_name);
+          // <h1>${res.data.user.f_name}</h1>;
+        }
+        if (res.data.exists == false) {
+          window.alert(res.data.msg);
+        }
       },
       (error) => {
-        window.alert(`${error.response.data.msg}`);
+        window.alert(`Sorry! ${error.response.data.msg}`);
       }
     );
     // } catch (error) {

@@ -4,6 +4,7 @@ const { StatusCodes } = require("http-status-codes");
 require("dotenv").config;
 const email = async (req, res) => {
   try {
+    console.log("email controller", req.user);
     // const token = req.cookies.JWT;
 
     // const decode = await JWTDecode(token);
@@ -12,7 +13,7 @@ const email = async (req, res) => {
 
     // const user = await User.findById(userId);
     // console.log("insdie email");
-    const { email } = req.user;
+    const email = "krish.mehta.3822@gmail.com";
     const senderemail = req.params.email;
 
     // const email1 = "krish.mehta.3822@gmail.com";
@@ -42,9 +43,10 @@ const email = async (req, res) => {
         },
       ],
     });
-    console.log("this is onfp", info);
+    // console.log("this is onfp", info);
     res.status(StatusCodes.OK).json(info);
   } catch (error) {
+    console.log("this is error", error);
     res.send(error);
   }
 };

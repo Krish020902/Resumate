@@ -729,14 +729,14 @@ module.exports = ({
                 <h3>
                   <a href="${github}">github</a>
                 </h3>
-                <h3>${phone}</h3>
+                <h3>${github}</h3>
               </div>
               <div class="contact-info">
                 <!-- <h3><a id="pdf" href="#">Download PDF</a></h3> -->
                 <h3>
                   <a href="${linkedin}">linkedIn</a>
                 </h3>
-                <h3>${phone}</h3>
+                <h3>${linkedin}</h3>
               </div>
               <!--// .contact-info -->
             </div>

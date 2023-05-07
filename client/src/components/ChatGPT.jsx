@@ -10,7 +10,7 @@ import {
 } from "@chatscope/chat-ui-kit-react";
 import axios from "axios";
 
-const api_key = "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";
+const api_key = "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";
 
 function App() {
   const [messages, setMessages] = useState([

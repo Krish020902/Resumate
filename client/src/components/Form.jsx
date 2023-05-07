@@ -26,7 +26,11 @@ const Form = () => {
   console.log("this is state", state);
   const name = state.data.name;
   const last = state.data.last;
-  data = state.data.cv;
+  console.log("this is state cv", state.data.cv);
+  if (state.data.cv != undefined) {
+    data = state.data.cv;
+  }
+  console.log("this is data2", data);
   console.log("this is state with name", name);
 
   const ShowForm = async () => {
@@ -51,37 +55,39 @@ const Form = () => {
   }, []);
 
   const [success, setSuccess] = useState(false);
-  const [formData, setFormData] = useState({
-    id: data.id == "" ? "" : data.id,
-    fname: data.fname == "" ? "" : data.fname,
-    lname: data.lname == "" ? "" : data.lname,
-    email: data.email == "" ? "" : data.email,
-    phone: data.phone == "" ? "" : data.phone,
-    linkedin: data.linkedin == "" ? "" : data.linkedin,
-    github: data.github == "" ? "" : data.github,
-    skills: data.skills == "" ? "" : data.skills,
+  const [formData, setFormData] = useState(
+    state.data.cv && {
+      id: data.id == "" ? "" : data.id,
+      fname: data.fname == "" ? "" : data.fname,
+      lname: data.lname == "" ? "" : data.lname,
+      email: data.email == "" ? "" : data.email,
+      phone: data.phone == "" ? "" : data.phone,
+      linkedin: data.linkedin == "" ? "" : data.linkedin,
+      github: data.github == "" ? "" : data.github,
+      skills: data.skills == "" ? "" : data.skills,
 
-    exp1_org: data.org == "" ? "" : data.org,
-    exp1_pos: data.pos == "" ? "" : data.pos,
-    exp1_desc: data.desc == "" ? "" : data.desc,
-    exp1_dur: data.dur == "" ? "" : data.dur,
+      exp1_org: data.org == "" ? "" : data.org,
+      exp1_pos: data.pos == "" ? "" : data.pos,
+      exp1_desc: data.desc == "" ? "" : data.desc,
+      exp1_dur: data.dur == "" ? "" : data.dur,
 
-    proj1_title: data.proj1_title == "" ? "" : data.proj1_title,
-    proj1_link: data.proj1_link == "" ? "" : data.proj1_link,
-    proj1_desc: data.proj1_desc == "" ? "" : data.proj1_desc,
-    proj2_title: data.proj2_title == "" ? "" : data.proj2_title,
-    proj2_link: data.proj2_link == "" ? "" : data.proj2_link,
-    proj2_desc: data.proj2_desc == "" ? "" : data.proj2_desc,
+      proj1_title: data.proj1_title == "" ? "" : data.proj1_title,
+      proj1_link: data.proj1_link == "" ? "" : data.proj1_link,
+      proj1_desc: data.proj1_desc == "" ? "" : data.proj1_desc,
+      proj2_title: data.proj2_title == "" ? "" : data.proj2_title,
+      proj2_link: data.proj2_link == "" ? "" : data.proj2_link,
+      proj2_desc: data.proj2_desc == "" ? "" : data.proj2_desc,
 
-    edu1_school: data.edu1_school == "" ? "" : data.edu1_school,
-    edu1_year: data.edu1_year == "" ? "" : data.edu1_year,
-    edu1_qualification:
-      data.edu1_qualification == "" ? "" : data.edu1_qualification,
-    edu1_desc: data.edu1_desc == "" ? "" : data.edu1_desc,
-    senderemail: data.senderemail == "" ? "" : data.senderemail,
+      edu1_school: data.edu1_school == "" ? "" : data.edu1_school,
+      edu1_year: data.edu1_year == "" ? "" : data.edu1_year,
+      edu1_qualification:
+        data.edu1_qualification == "" ? "" : data.edu1_qualification,
+      edu1_desc: data.edu1_desc == "" ? "" : data.edu1_desc,
+      senderemail: data.senderemail == "" ? "" : data.senderemail,
 
-    existData: { data },
-  });
+      existData: { data },
+    }
+  );
 
   const [page, setPage] = useState(0);
   const FormTitle = [
@@ -150,7 +156,7 @@ const Form = () => {
         <div className="bg-lvnder">
           {/* <h1>${name</h1> */}
           <h1 className="text-center">
-            Let's generate your Resume! Mr {name} {last}
+            Let's generate your Resume! Mr {name} {last}.
             {/* console.log(data) */}
           </h1>
           <div className="d-flex justify-content-center">
@@ -299,6 +305,7 @@ const Form = () => {
                                 `/email/email/${formData.senderemail}`
                               );
                             }}
+                            data-bs-dismiss="modal"
                           >
                             Send Email
                           </button>
