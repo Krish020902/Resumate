@@ -20,17 +20,19 @@ const email = async (req, res) => {
     const pdf = fs.readFileSync(`${__dirname}/Resume.pdf`, {
       encoding: "base64",
     });
-
+    // console.log("sender", senderemail);
+    // console.log(email);
+    // console.log(process.env.TWO_FACTOR_GMAIL_PASS);
     const transporter = nodeMailer.createTransport({
       service: "gmail",
       auth: {
-        user: email,
+        user: "krish.mehta.3822@gmail.com",
         pass: process.env.TWO_FACTOR_GMAIL_PASS,
       },
     });
 
     const info = await transporter.sendMail({
-      from: `"Krish Mehta" ${email}`,
+      from: "krish.mehta.3822@gmail.com",
       to: senderemail,
       subject: "Resume",
       text: "Your resume",
@@ -42,7 +44,7 @@ const email = async (req, res) => {
         },
       ],
     });
-    console.log("this is onfp", info);
+    // console.log("this is info", info);
     res.status(StatusCodes.OK).json(info);
   } catch (error) {
     res.send(error);
